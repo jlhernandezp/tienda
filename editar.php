@@ -23,8 +23,8 @@ and open the template in the editor.
             <input type='textarea' name='descripcion' value='<?php echo $_POST['descripcion']; ?>'/><br/>
             <label>PVP</label><br/>
             <input type='text' name='pvp' size='25'value='<?php echo $_POST['pvp']; ?>' /><br/>
-            <input type='button' name='actualizar' value='Actualizar'/>
-            <input type='button' name='cancelar' value='Cancelar'/>
+            <input type='submit' name='actualizar' value='Actualizar'/>
+            <input type='submit' name='cancelar' value='Cancelar'/>
             
         </form>
     </body>

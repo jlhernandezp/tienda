@@ -17,15 +17,26 @@ and open the template in the editor.
                 if ($miConexion->connect_error){
                     echo "Error conectando con la base de datos: ".$miConexion->connect_error;
                 } else {
-
-                        $sentencia_sql="UPDATE PRODUCTO SET nombre='".$_POST['nombre'];
-                        $sentencia_sql.="', nombre_corto='".$_POST['nombreCorto'];
-                        $sentencia_sql.="', descripcion='".$_POST['descripcion'];
-                        $sentencia_sql.="' PVP='".$_POST['pvp']."' WHERE cod='".$_POST['cod']."';";
-                        $miConexion->query($sentencia_sql);
-
+                    echo "Actualizando....<br/>";
+                        $sentencia_sql="UPDATE `producto` SET `nombre`='".$_POST['nombre'];
+                        $sentencia_sql.="', `nombre_corto`='".$_POST['nombreCorto'];
+                        $sentencia_sql.="', `descripcion`='".$_POST['descripcion'];
+                        $sentencia_sql.="', `PVP`='".$_POST['pvp']."' WHERE `cod`='".$_POST['cod']."';";
+                    if ($miConexion->query($sentencia_sql)){
+                        echo $sentencia_sql."<br/>";
+                        
+                    } else {
+                         echo "Error conectando con la base de datos: ".$miConexion->error;
+                        
                     }
+                    
+                    }
+            } else {
+                header('Location: listado.php');
             }
                ?>
+        <form name="adelante" id="adelante" method="post" action="listado.php">
+            <input type="submit" name="continuar" value="Continuar..."/>
+         </form>
     </body>
 </html>
