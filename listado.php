@@ -38,7 +38,7 @@
             <input type='submit' name='mostrar' value='Mostrar productos' />
         </form>
 </div>
-
+    
 <div id="contenido">
 	<h2>Contenido</h2>
         <?php
@@ -46,13 +46,18 @@
                 $resultado=$miConexion->query("SELECT * FROM `producto` WHERE `familia`='".$_POST['familia']."'");
             
                 $producto=$resultado->fetch_array();
-                echo "<form method='post' action='editar.php'><table>";    
+                echo "<table>";    
                 while ($producto){
-                        echo "<tr><td>".$producto[2]."</td><td>".$producto[4]."</td><td><input type='submit' name='editar$producto[0]' value='Editar'</td></tr>";
-                     
+                        echo "<tr><form method='post' action='editar.php'><td>".$producto[2]."</td><td>".$producto[4]."</td><td><input type='submit' name='editar$producto[0]' value='Editar'</td>";
+                        echo "<input type='hidden' name='cod' value='$producto[0]' />";
+                        echo "<input type='hidden' name='nombre' value='$producto[1]' />";
+                        echo "<input type='hidden' name='nombre_corto' value='$producto[2]' />";
+                        echo "<input type='hidden' name='descripcion' value='$producto[3]' />";
+                        echo "<input type='hidden' name='pvp' value='$producto[4]' />";
+                        echo "</form></tr>";
                         $producto=$resultado->fetch_array();
                     }
-                echo "</table></form>";
+                echo "</table>";
             }
         
         
