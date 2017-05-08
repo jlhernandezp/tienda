@@ -18,6 +18,7 @@ and open the template in the editor.
 
                     <h3><img src="imagenes/cesta.png" alt='Cesta' width='24' heigth='21' /> Cesta</h3>
                     <hr />
+                    
                     {if !empty($productosCesta)}
                     {foreach from=$productosCesta item=$producto key=$codigo}
                         <p>

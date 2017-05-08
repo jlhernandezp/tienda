@@ -25,10 +25,11 @@
                     <tbody> -->
                 {foreach from=$listaProductos item=producto}
                 <p>
-                    <form action="productos.php" method="post">
+                    <form name='listado' action="productos.php" method="post">
                              <td><input type="hidden" name='cod' value='{$producto->cod}' />
                                  <input type="hidden" name='PVP' value='{$producto->PVP}' />
                                  <input type="submit" name="enviar" value="Añadir"/></td>
+                                 
                                 {$producto->nombre_corto}: {$producto->PVP}
                         </form>
                 </p>

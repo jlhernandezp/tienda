@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-07 21:32:12
+/* Smarty version 3.1.30, created on 2017-05-08 18:04:36
   from "C:\xampp\htdocs\tiendav1\smarty\listaProducto.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_590f763c360b16_89040770',
+  'unifunc' => 'content_59109714a04e20_44285391',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6477b21447d38d4a2bea2cbf0daf17bb130c2fc8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tiendav1\\smarty\\listaProducto.tpl',
-      1 => 1494185472,
+      1 => 1494259442,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_590f763c360b16_89040770 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59109714a04e20_44285391 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 
@@ -53,12 +53,13 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
 ?>
                 <p>
-                    <form action="productos.php" method="post">
+                    <form name='listado' action="productos.php" method="post">
                              <td><input type="hidden" name='cod' value='<?php echo $_smarty_tpl->tpl_vars['producto']->value->cod;?>
 ' />
                                  <input type="hidden" name='PVP' value='<?php echo $_smarty_tpl->tpl_vars['producto']->value->PVP;?>
 ' />
                                  <input type="submit" name="enviar" value="Añadir"/></td>
+                                 <input type="button" value="X-Enviar" onclick="xajax_actualiza(xajax.getFormValues('listado').)" />
                                 <?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre_corto;?>
 : <?php echo $_smarty_tpl->tpl_vars['producto']->value->PVP;?>
 

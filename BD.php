@@ -62,8 +62,8 @@ class BD {
           $valores = array('usuario'=>$nombre, 'password' =>$pass);
        $sql = <<<FIN
         SELECT usuario FROM usuarios 
-        WHERE usuario=:usuario
-        AND contrasena=md5(:password)
+        WHERE usuario='{$nombre}'
+        AND contrasena='{$pass}'
 FIN;
        $resultado = self::ejecutaConsulta ($sql,$valores);
        $verificado = false;
